@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/rounded_panel_wrapper"
+    android:elevation="4dp"
+    android:orientation="vertical"
+    >
+    <ImageView
+        android:id="@+id/disasterImg"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:background="@drawable/dms_high_resolution_logo"
+
+        />
+    <TextView
+        android:id="@+id/typeTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/disaster_1"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="25dp"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:textColor="@color/black"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="50dp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="report date: "/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:id="@+id/reportDateTxt"
+            android:textColor="@color/black"
+            android:text="1 July 2023"/>
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="50dp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="italic"
+            android:text="location: "/>
+        <TextView
+            android:id="@+id/txtLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:text="Thembisile Hani"/>
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="30dp">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:id="@+id/statusImg"
+            android:background="@drawable/dangerous"
+            />
+        <TextView
+            android:id="@+id/statusTxt"
+            android:textStyle="bold"
+            android:layout_marginTop="3dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="UNATTENDED"/>
+
+    </LinearLayout>
+</LinearLayout>

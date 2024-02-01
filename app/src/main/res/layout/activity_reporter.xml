@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+
+    tools:context=".ReporterActivity">
+
+<!--    Tool Bar-->
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/Theme.Dmssystemandroid.AppBarOverlay">
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/Theme.Dmssystemandroid.PopupOverlay" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:orientation="vertical"
+        android:layout_marginTop="20dp"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:layout_marginVertical="15dp"
+            android:background="@drawable/panel_wrapper"
+            >
+            <ImageView
+                android:id="@+id/disasterImg"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/dms_high_resolution_logo"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/captureLayout"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="@drawable/panel_wrapper"
+            android:layout_width="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_height="wrap_content">
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:background="@android:color/transparent"
+                android:src="@drawable/baseline_camera_alt_24"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="30dp"
+                android:text="Capture"
+                android:textColor="@color/my_green"
+                android:layout_marginBottom="3dp"
+                android:layout_marginStart="5dp"
+                />
+        </LinearLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="match_parent"
+            android:layout_marginTop="5dp"
+            android:layout_height="wrap_content">
+            <AutoCompleteTextView
+                android:hint="Select Language"
+                android:editable="false"
+                android:id="@+id/typeSelect"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="write short description"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/descEdit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:gravity="top"
+                android:lines="5"
+                android:minLines="5"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="8dp"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/reportBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Report"
+            android:textSize="25dp"
+            android:layout_gravity="center"/>
+
+    </LinearLayout>
+
+
+
+
+
+
+
+</LinearLayout>

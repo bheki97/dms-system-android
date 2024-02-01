@@ -1,0 +1,58 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Dmssystemandroid" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+
+        <item name="colorPrimary">@color/my_green</item>
+        <item name="colorOnPrimaryContainer">@color/my_green</item>
+        <item name="colorOnPrimarySurface">@color/my_green</item>
+        <item name="colorPrimaryVariant">@color/my_green</item>
+        <item name="colorBackgroundFloating">@color/my_green</item>
+        <item name="colorOnBackground">@color/my_green</item>
+
+
+
+
+        <item name="colorPrimaryInverse">@color/my_gold</item>
+        <item name="colorPrimaryContainer">#BFC79131</item>
+
+
+
+        <item name="colorSecondaryContainer">#BFC79131</item>
+
+        <item name="colorOnSurfaceVariant">@color/my_green</item>
+
+
+        <item name="colorSurfaceVariant">@color/my_green</item>
+
+        <item name="colorPrimarySurface">@color/my_green</item>
+        <item name="colorOnSurface">#015334</item>
+
+
+        <item name="color">@color/my_green</item>
+
+
+
+
+        <item name="colorControlActivated">@color/my_gold</item>
+        <item name="android:colorControlHighlight">@color/my_gold</item>
+        <item name="android:colorControlActivated">@color/my_gold</item>
+
+
+        <item name="android:textColorHighlight">@color/my_gold</item>
+
+
+        <item name="android:statusBarColor">@color/my_gold</item>
+    </style>
+
+    <style name="Theme.Dmssystemandroid" parent="Base.Theme.Dmssystemandroid" />
+
+    <style name="Theme.Dmssystemandroid.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.Dmssystemandroid.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.Dmssystemandroid.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+</resources>
