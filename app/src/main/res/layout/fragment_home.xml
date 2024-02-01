@@ -3,17 +3,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp"
     tools:context=".ui.home.HomeFragment">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
+
         android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="5dp"
         android:textColor="@color/black"
         android:textStyle="bold"
-        android:textSize="40dp"
-        android:text="Reports: "/>
+        android:textSize="25dp"
+        android:text="Reported Disasters: "/>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/reportsRecycler"
         android:layout_width="match_parent"

@@ -10,7 +10,7 @@
 
     <string name="menu_disaster_updates">Disaster Updates</string>
     <string name="menu_my_reports">My Reports</string>
-    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_logout">Logout</string>
 
     <string name="disaster_1">Water pipe leak</string>
     <string name="disaster_2">Sewage Block</string>

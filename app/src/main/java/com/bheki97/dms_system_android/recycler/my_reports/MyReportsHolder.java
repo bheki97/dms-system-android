@@ -50,7 +50,16 @@ public class MyReportsHolder extends RecyclerView.ViewHolder  {
 
     private void setStatus(ReportDto report) {
 
-        if(report.getTechnicianAttendDate()==null){
+        if(report.getReportDate()==null){
+            binding.statusImg.setImageDrawable(
+                    ResourcesCompat.getDrawable(binding.getRoot().getResources(), R.drawable.baseline_warning_24,null)
+            );
+            binding.statusTxt.setText("NOT REPORTED");
+            return;
+        }
+
+
+        if(report.getDelegationDate()==null){
             binding.statusImg.setImageDrawable(
                     ResourcesCompat.getDrawable(binding.getRoot().getResources(), R.drawable.dangerous,null)
             );
@@ -58,6 +67,17 @@ public class MyReportsHolder extends RecyclerView.ViewHolder  {
             binding.statusTxt.setTextColor(ContextCompat.getColor(binding.getRoot().getContext(),R.color.unattended));
             return ;
         }
+
+        if(report.getTechnicianAttendDate()==null){
+            binding.statusImg.setImageDrawable(
+                    ResourcesCompat.getDrawable(binding.getRoot().getResources(), R.drawable.baseline_assignment_ind_24,null)
+            );
+            binding.statusTxt.setText("ASSISTANCE DELEGATED");
+            binding.statusTxt.setTextColor(ContextCompat.getColor(binding.getRoot().getContext(),R.color.dull_grey));
+            return ;
+        }
+
+
         if(report.getCompleteDate()==null){
             binding.statusImg.setImageDrawable(
                     ResourcesCompat.getDrawable(binding.getRoot().getResources(), R.drawable.attending,null)
@@ -66,6 +86,12 @@ public class MyReportsHolder extends RecyclerView.ViewHolder  {
             binding.statusTxt.setTextColor(ContextCompat.getColor(binding.getRoot().getContext(),R.color.attending));
             return ;
         }
+
+        binding.statusImg.setImageDrawable(
+                ResourcesCompat.getDrawable(binding.getRoot().getResources(), R.drawable.resolved,null)
+        );
+        binding.statusTxt.setText("RESOLVED");
+        binding.statusTxt.setTextColor(ContextCompat.getColor(binding.getRoot().getContext(),R.color.resolved));
         
 
     }

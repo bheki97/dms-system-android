@@ -2,9 +2,12 @@ package com.bheki97.dms_system_android;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
+import android.widget.TextView;
 
+import com.bheki97.dms_system_android.userdetails.UserDetailsHolder;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.navigation.NavController;
@@ -35,15 +38,46 @@ public class HomeActivity extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow)
+                R.id.nav_home, R.id.nav_gallery, R.id.nav_logout)
                 .setOpenableLayout(drawer)
                 .build();
+
+        setLogoutListener(navigationView.getMenu().findItem(R.id.nav_logout));
 
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_home);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
+        TextView usernameView = (TextView) binding.navView.getHeaderView(0).findViewById(R.id.username);
+        UserDetailsHolder holder = UserDetailsHolder.getInstance();
+        String username   = convertToInitCap(holder.getFirstname()) +" " +convertToInitCap(holder.getLastname());
+        usernameView.setText(username);
+
+        TextView userEmailView = (TextView) binding.navView.getHeaderView(0).findViewById(R.id.userEmail);
+        userEmailView.setText(holder.getEmail());
     }
 
+    private void setLogoutListener(MenuItem item) {
+        item.setOnMenuItemClickListener( i -> {
+            UserDetailsHolder.build(null);
+            startActivity(new Intent(this,MainActivity.class));
+            finish();
+            return false;
+        });
+    }
+
+    private String convertToInitCap(String name){
+        String names[] = name.split(" ");
+        name = "";
+        String val;
+        for(int i=0; i<names.length;i++){
+            val = names[i];
+            val = val.toLowerCase();
+            val  = Character.toUpperCase(val.charAt(0))+val.substring(1);
+            name  += val +" ";
+        }
+        return name.trim();
+    }
     private void openReportDisasterActivity(View view) {
         startActivity(new Intent(this,ReporterActivity.class));
     }

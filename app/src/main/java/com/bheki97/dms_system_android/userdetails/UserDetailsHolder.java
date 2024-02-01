@@ -7,6 +7,7 @@ public class UserDetailsHolder {
     private String firstname;
     private String lastname;
     private String cellNo;
+    private String userRole;
     private String jwtToken;
 
     private static UserDetailsHolder instance;
@@ -18,12 +19,13 @@ public class UserDetailsHolder {
     public UserDetailsHolder() {
     }
 
-    public UserDetailsHolder(long userId, String email, String firstname, String lastname, String cellNo,String jwtToken) {
+    public UserDetailsHolder(long userId, String email, String firstname, String lastname, String cellNo,String userRole,String jwtToken) {
         this.userId = userId;
         this.email = email;
         this.firstname = firstname;
         this.lastname = lastname;
         this.cellNo = cellNo;
+        this.userRole = userRole;
         this.jwtToken = jwtToken;
     }
 
@@ -31,9 +33,17 @@ public class UserDetailsHolder {
 
         if(instance==null){
             instance = new UserDetailsHolder(1,"abc@gmail.com",
-                    "Bheki","Mautjana","+27760794703","");
+                    "Bheki","Mautjana","+27760794703","user","");
         }
         return instance;
+    }
+
+    public String getUserRole() {
+        return userRole;
+    }
+
+    public void setUserRole(String userRole) {
+        this.userRole = userRole;
     }
 
     public String getJwtToken() {
@@ -92,6 +102,8 @@ public class UserDetailsHolder {
                 ", firstname='" + firstname + '\'' +
                 ", lastname='" + lastname + '\'' +
                 ", cellNo='" + cellNo + '\'' +
+                ", userRole='" + userRole + '\'' +
+                ", jwtToken='" + jwtToken + '\'' +
                 '}';
     }
 }

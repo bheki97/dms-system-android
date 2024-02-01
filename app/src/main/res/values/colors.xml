@@ -7,4 +7,5 @@
     <color name="unattended">#FF0000</color>
     <color name="attending">#ffc107</color>
     <color name="resolved">#28a745</color>
+    <color name="dull_grey">#BBBBBB</color>
 </resources>
