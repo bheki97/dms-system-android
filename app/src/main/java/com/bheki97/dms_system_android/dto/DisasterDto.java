@@ -14,17 +14,17 @@ public class DisasterDto {
     private double longitude;
     private double latitude;
     private ReporterDto reporter;
-    private ReportDto report;
+    private ReportDto reportDto;
 
     public DisasterDto() {
     }
 
-    public ReportDto getReport() {
-        return report;
+    public ReportDto getReportDto() {
+        return reportDto;
     }
 
-    public void setReport(ReportDto report) {
-        this.report = report;
+    public void setReportDto(ReportDto reportDto) {
+        this.reportDto = reportDto;
     }
 
     public String getLocation() {
@@ -111,6 +111,7 @@ public class DisasterDto {
                 ", longitude=" + longitude +
                 ", latitude=" + latitude +
                 ", reporter=" + reporter.toString() +
+                ", reportDto=" + reportDto.toString()+
                 '}';
     }
 }

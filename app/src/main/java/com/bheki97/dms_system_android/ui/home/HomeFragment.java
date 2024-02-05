@@ -69,6 +69,7 @@ public class HomeFragment extends Fragment {
 
             @Override
             public void onFailure(Call<DisasterDto[]> call, Throwable t) {
+                t.printStackTrace();
                 Toast.makeText(binding.getRoot().getContext(), "Failed to Fetch Updates",
                         Toast.LENGTH_SHORT).show();
             }

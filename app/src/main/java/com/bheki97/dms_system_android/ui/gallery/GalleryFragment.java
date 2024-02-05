@@ -5,10 +5,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.bheki97.dms_system_android.databinding.FragmentGalleryBinding;
 import com.bheki97.dms_system_android.dto.DisasterDto;
@@ -38,7 +40,9 @@ public class GalleryFragment extends Fragment {
 
         binding = FragmentGalleryBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
+
         dmsServerAPI = RetrofitService.getInstance().getRetrofit().create(DmsServerAPI.class);
+        binding.myReportsRecycler.setLayoutManager(new LinearLayoutManager(binding.getRoot().getContext()));
         reportsAdapterRecycler = new MyReportsAdapterRecycler();
 
 
@@ -58,16 +62,19 @@ public class GalleryFragment extends Fragment {
                     @Override
                     public void onResponse(Call<DisasterDto[]> call, Response<DisasterDto[]> response) {
                         if(response.code()==200){
+                            Toast.makeText(getContext(),"successful",Toast.LENGTH_SHORT).show();
                             List<DisasterDto> list = new ArrayList<>();
                             Collections.addAll(list, response.body());
                             reportsAdapterRecycler.setDisasters(list);
                             binding.myReportsRecycler.setAdapter(reportsAdapterRecycler);
+                        }else{
+                            Toast.makeText(getContext(),"Unsuccessful",Toast.LENGTH_SHORT).show();
                         }
                     }
 
                     @Override
                     public void onFailure(Call<DisasterDto[]> call, Throwable t) {
-
+                        Toast.makeText(getContext(),"Error Occurred",Toast.LENGTH_SHORT).show();
                     }
                 }
         );

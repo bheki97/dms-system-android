@@ -36,7 +36,7 @@ public class DisasterUpdateHolder extends RecyclerView.ViewHolder  {
     public void bind(DisasterDto dto){
         this.dto = dto;
         setReporterName(dto.getReporter());
-        setReportDate(dto.getReport().getReportDate());
+        setReportDate(dto.getReportDto().getReportDate());
         setDisasterType(dto.getType());
         setDisasterImage(dto.getImgFileContent());
 

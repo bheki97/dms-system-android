@@ -2,7 +2,6 @@ package com.bheki97.dms_system_android.recycler.my_reports;
 
 
 
-import android.content.res.ColorStateList;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Base64;
@@ -13,11 +12,9 @@ import androidx.core.content.res.ResourcesCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bheki97.dms_system_android.R;
-import com.bheki97.dms_system_android.databinding.HolderDisasterUpdateBinding;
 import com.bheki97.dms_system_android.databinding.HolderMyReportBinding;
 import com.bheki97.dms_system_android.dto.DisasterDto;
 import com.bheki97.dms_system_android.dto.ReportDto;
-import com.bheki97.dms_system_android.dto.ReporterDto;
 import com.bheki97.dms_system_android.enums.DisasterType;
 
 import java.sql.Timestamp;
@@ -41,10 +38,10 @@ public class MyReportsHolder extends RecyclerView.ViewHolder  {
 
     public void bind(DisasterDto dto){
         this.dto = dto;
-        setReportDate(dto.getReport().getReportDate());
+        setReportDate(dto.getReportDto().getReportDate());
         setDisasterType(dto.getType());
         setDisasterImage(dto.getImgFileContent());
-        setStatus(dto.getReport());
+        setStatus(dto.getReportDto());
 
     }
 

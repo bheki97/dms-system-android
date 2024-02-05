@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
 
 //            sendLoginRequest(dto);
 
-            UserDetailsHolder.build(new UserDetailsHolder(1,"abc@gmail.com","Bheki","Mautjana","+27760794703",""));
+            UserDetailsHolder.build(new UserDetailsHolder(1,"abc@gmail.com","Bheki","Mautjana","+27760794703","user",""));
             startActivity(new Intent(MainActivity.this,HomeActivity.class));
             finish();
         });
