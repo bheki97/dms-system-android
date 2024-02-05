@@ -46,6 +46,7 @@ public class MyReportsHolder extends RecyclerView.ViewHolder  {
     }
 
     private void setStatus(ReportDto report) {
+        System.out.println(report);
 
         if(report.getReportDate()==null){
             binding.statusImg.setImageDrawable(
@@ -71,7 +72,7 @@ public class MyReportsHolder extends RecyclerView.ViewHolder  {
             );
             binding.statusTxt.setText("ASSISTANCE DELEGATED");
             binding.statusTxt.setTextColor(ContextCompat.getColor(binding.getRoot().getContext(),R.color.dull_grey));
-            return ;
+            return;
         }
 
 

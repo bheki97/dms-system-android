@@ -57,4 +57,16 @@ public class ReportDto {
     public void setCompleteDate(Timestamp completeDate) {
         this.completeDate = completeDate;
     }
+
+    @Override
+    public String toString() {
+        return "ReportDto{" +
+                "disasterReportId=" + disasterReportId +
+                ", technicianDto=" + (technicianDto==null? "null":technicianDto.toString())+
+                ", reportDate=" + reportDate +
+                ", delegationDate=" + delegationDate +
+                ", technicianAttendDate=" + technicianAttendDate +
+                ", completeDate=" + completeDate +
+                '}';
+    }
 }

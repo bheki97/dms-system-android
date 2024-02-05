@@ -75,7 +75,6 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:id="@+id/statusImg"
-            android:background="@drawable/dangerous"
             />
         <TextView
             android:id="@+id/statusTxt"
