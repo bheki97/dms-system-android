@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import android.content.DialogInterface;
 import android.location.Location;
 
 import android.app.Activity;
@@ -35,6 +36,7 @@ import com.bheki97.dms_system_android.userdetails.UserDetailsHolder;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -183,6 +185,23 @@ public class ReporterActivity extends AppCompatActivity {
         if(latitude==0.0 || longitude==0.0){
             throw new UiException("Failed: unable to access your location, please try gain");
         }
+    }
+
+    private void confirmReportDisaster(){
+        MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(this);
+
+        builder.setTitle("Reported Confirmation");
+        builder.setMessage("Thank you for reporting the disaster we will keep you update with the Progress." +
+                " You track the disaster of the my history tab ");
+        builder.setPositiveButton("Join Event", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+
+
+        builder.create().show();
     }
 
     private void submitDisasterDto(DisasterDto dto) {

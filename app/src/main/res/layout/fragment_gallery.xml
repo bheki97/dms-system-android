@@ -7,21 +7,12 @@
     android:padding="10dp"
     android:orientation="vertical"
     tools:context=".ui.gallery.GalleryFragment">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        android:textSize="25dp"
-        android:text="My History Reports: "/>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/myReportsRecycler"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="5dp"
+        android:layout_marginTop="10dp"
         android:layout_marginBottom="60dp"/>
 
 </LinearLayout>
