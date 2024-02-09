@@ -61,6 +61,10 @@ public class HomeFragment extends Fragment {
                     if(response.body()!=null){
                         List<DisasterDto> list = new ArrayList<>();
                         Collections.addAll(list, response.body());
+
+                        if(list.isEmpty()){
+                            binding.nothingHereLayout.setVisibility(View.VISIBLE);
+                        }
                         updatesAdapterRecycler.setDisasters(list);
                         binding.reportsRecycler.setAdapter(updatesAdapterRecycler);
                     }

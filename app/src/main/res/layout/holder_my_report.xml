@@ -4,6 +4,7 @@
     android:layout_height="wrap_content"
     android:background="@drawable/rounded_panel_wrapper"
     android:elevation="4dp"
+    android:padding="5dp"
     android:layout_margin="4dp"
     android:orientation="vertical"
     >
@@ -13,62 +14,126 @@
         android:layout_height="220dp"
 
         />
-    <TextView
-        android:id="@+id/typeTxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/disaster_1"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="25dp"
-        android:textSize="25dp"
-        android:textStyle="bold"
-        android:textColor="@color/black"/>
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:layout_marginStart="50dp"
-        >
-        <TextView
-            android:layout_width="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="6dp"
+        android:layout_height="wrap_content">
+
+        <!--                    type - icon-->
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_gravity="center"
             android:layout_height="wrap_content"
-            android:text="report date: "/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20dp"
-            android:id="@+id/reportDateTxt"
-            android:textColor="@color/black"
-            android:text="1 July 2023"/>
+            android:src="@drawable/outline_pie_chart_24"/>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="Type"
+                android:textSize="18dp"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:id="@+id/typeTxt"
+                android:textColor="@color/black"
+                android:text="SEWAGE BLOCK"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_marginBottom="6dp"
+            android:layout_height="wrap_content">
+
+            <!--                    description - icon-->
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content"
+                android:src="@drawable/outline_date_range_24"/>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="Report date"
+                    android:textSize="18dp"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/reportDateTxt"
+                    android:textColor="@color/black"
+                    android:text="01 July 2023"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_marginBottom="6dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content">
+
+            <!--                    description - icon-->
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content"
+                android:src="@drawable/outline_location_on_24"/>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="Location"
+                    android:textSize="18dp"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/locationTxt"
+                    android:textColor="@color/black"
+                    android:text="Thembisile Hani"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
 
 
     </LinearLayout>
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:layout_marginStart="50dp"
-        >
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textStyle="italic"
-            android:text="location: "/>
-        <TextView
-            android:id="@+id/txtLocation"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20dp"
-            android:textColor="@color/black"
-            android:text="Thembisile Hani"/>
 
 
-    </LinearLayout>
+
+
     <LinearLayout
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:layout_gravity="end"
-        android:layout_marginTop="5dp"
+        android:layout_marginHorizontal="10dp"
         android:layout_marginEnd="30dp">
         <ImageView
             android:layout_width="wrap_content"

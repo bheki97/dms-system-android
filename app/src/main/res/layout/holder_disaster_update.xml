@@ -15,57 +15,113 @@
         />
     <LinearLayout
         android:layout_width="match_parent"
-        android:background="@drawable/panel_wrapper"
-        android:layout_height="1.4dp"/>
-        <TextView
-            android:id="@+id/typeTxt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/disaster_1"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="10dp"
-            android:textSize="25dp"
-            android:textStyle="bold"
-            android:textColor="@color/black"/>
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:layout_marginStart="50dp"
-        >
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textStyle="italic"
-            android:text="reported by: "/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20dp"
-            android:id="@+id/reporterNameTxt"
-            android:textColor="@color/black"
-            android:text="Bheki Mautjana"/>
+        android:layout_marginBottom="6dp"
+        android:layout_marginHorizontal="5dp"
+        android:layout_height="wrap_content">
 
+        <!--                    type - icon-->
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:src="@drawable/outline_pie_chart_24"/>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="Type"
+                android:textSize="18dp"
+                android:layout_height="wrap_content"/>
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:id="@+id/typeTxt"
+                android:textColor="@color/black"
+                android:text="SEWAGE BLOCK"/>
+
+        </LinearLayout>
     </LinearLayout>
+
+
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:layout_marginStart="50dp"
-        >
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textStyle="italic"
-            android:text="location: "/>
-        <TextView
-            android:id="@+id/txtLocation"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20dp"
-            android:textColor="@color/black"
-            android:text="Thembisile Hani"/>
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_marginBottom="6dp"
+            android:layout_height="wrap_content">
+
+            <!--                    description - icon-->
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content"
+                android:src="@drawable/outline_account_circle_24"/>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="Reporter"
+                    android:textSize="18dp"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/reporterNameTxt"
+                    android:textColor="@color/black"
+                    android:text="Bheki Mautjana"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_marginBottom="6dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content">
+
+            <!--                    description - icon-->
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content"
+                android:src="@drawable/outline_location_on_24"/>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="Location"
+                    android:textSize="18dp"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/locationTxt"
+                    android:textColor="@color/black"
+                    android:text="Thembisile Hani"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
 
 
     </LinearLayout>
@@ -73,9 +129,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end"
-        android:layout_marginTop="5dp"
         android:layout_marginEnd="30dp"
         android:id="@+id/reportDateTxt"
         android:text="21 July 2023"
-        android:layout_marginBottom="10dp"/>
+        android:layout_marginBottom="15dp"/>
 </LinearLayout>

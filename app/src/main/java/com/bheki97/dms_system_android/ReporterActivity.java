@@ -211,10 +211,13 @@ public class ReporterActivity extends AppCompatActivity {
             public void onResponse(Call<DisasterDto> call, Response<DisasterDto> response) {
                 if(response.code()==200){
                     Toast.makeText(ReporterActivity.this,"Disaster successfully Reported",Toast.LENGTH_SHORT).show();
+
+                    confirmReportDisaster();
                     imageContent = null;
                     setActiveImage();
                     binding.typeSelect.clearComposingText();
                     binding.descEdit.setText("");
+
                 }else{
                     try {
                         Toast.makeText(ReporterActivity.this,response.errorBody().string(),Toast.LENGTH_SHORT).show();

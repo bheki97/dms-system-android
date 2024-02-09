@@ -65,6 +65,10 @@ public class GalleryFragment extends Fragment {
                             Toast.makeText(getContext(),"successful",Toast.LENGTH_SHORT).show();
                             List<DisasterDto> list = new ArrayList<>();
                             Collections.addAll(list, response.body());
+
+                            if(list.isEmpty()){
+                                binding.nothingHereLayout.setVisibility(View.VISIBLE);
+                            }
                             reportsAdapterRecycler.setDisasters(list);
                             binding.myReportsRecycler.setAdapter(reportsAdapterRecycler);
                         }else{
