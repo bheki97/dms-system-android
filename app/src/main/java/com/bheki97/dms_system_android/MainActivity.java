@@ -13,6 +13,8 @@ import com.bheki97.dms_system_android.retrofit.DmsServerAPI;
 import com.bheki97.dms_system_android.retrofit.RetrofitService;
 import com.bheki97.dms_system_android.userdetails.UserDetailsHolder;
 
+import java.io.IOException;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -39,30 +41,35 @@ public class MainActivity extends AppCompatActivity {
 
     private void addOnClickForLoginBtn() {
         binding.loginBtn.setOnClickListener( v->{
+            LoginDto dto;
             try{
-                validateLoginDetails();
+                 dto = validateLoginDetails();
             }catch(UiException exc){
                 Toast.makeText(this, exc.getMessage(), Toast.LENGTH_SHORT).show();
                 return;
             }
+            sendLoginRequest(dto);
 
-            LoginDto dto = new LoginDto();
 
-//            sendLoginRequest(dto);
-
-            UserDetailsHolder.build(new UserDetailsHolder(1,"abc@gmail.com","Bheki","Mautjana","+27760794703","user",""));
-            startActivity(new Intent(MainActivity.this,HomeActivity.class));
-            finish();
         });
     }
 
-    private void validateLoginDetails()throws UiException {
-        if(binding.emailTxtEdit.getText().toString().isEmpty()){
+    private LoginDto validateLoginDetails()throws UiException {
+
+        LoginDto dto =new LoginDto();
+
+        String data;
+        if((data = binding.emailTxtEdit.getText().toString()).isEmpty()){
             throw new UiException("Email Field is empty!!");
         }
-        if(binding.pwdTxtEdit.getText().toString().isEmpty()){
+
+        dto.setUsername(data);
+        if((data = binding.pwdTxtEdit.getText().toString()).isEmpty()){
             throw new UiException("Password Field is empty!!");
         }
+        dto.setPassword(data);
+
+        return dto;
 
     }
 
@@ -70,17 +77,32 @@ public class MainActivity extends AppCompatActivity {
         dmsServerAPI.login(dto).enqueue(new Callback<UserDetailsHolder>() {
             @Override
             public void onResponse(Call<UserDetailsHolder> call, Response<UserDetailsHolder> response) {
-                Toast.makeText(MainActivity.this,"Successfully Logged in",Toast.LENGTH_SHORT).show();
-                UserDetailsHolder.build(response.body());
-                startActivity(new Intent(MainActivity.this,HomeActivity.class));
-                finish();
+
+                if(response.code()==200){
+                    Toast.makeText(MainActivity.this,"Successfully Logged in",Toast.LENGTH_SHORT).show();
+                    UserDetailsHolder.build(response.body());
+                    startActivity(new Intent(MainActivity.this,HomeActivity.class));
+                    finish();
+                }else{
+
+                    String msg;
+
+                    try {
+                        msg = response.errorBody().string();
+                    } catch (IOException e) {
+                        msg ="Error occurred, Please try again!";
+                    }
+
+                    Toast.makeText(MainActivity.this,msg,Toast.LENGTH_SHORT).show();
+
+                }
+
             }
 
             @Override
             public void onFailure(Call<UserDetailsHolder> call, Throwable t) {
-                Toast.makeText(MainActivity.this,"Login error, Please try again",Toast.LENGTH_SHORT).show();
-                binding.emailTxtEdit.setText("");
-                binding.pwdTxtEdit.setText("");
+                Toast.makeText(MainActivity.this,"Could not connect to Server",Toast.LENGTH_SHORT).show();
+
             }
         });
     }

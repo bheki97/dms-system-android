@@ -3,10 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-feature android:name="android.hardware.camera" />
+
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
+
     <uses-feature android:name="android.hardware.camera.autofocus" />
 
     <application
@@ -17,14 +19,21 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/dms_launcher_round"
         android:supportsRtl="true"
-        android:usesCleartextTraffic="true"
         android:theme="@style/Theme.Dmssystemandroid"
+        android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:label="Report Disaster"
-            android:name=".ReporterActivity"
+            android:name=".ProfileActivity"
+            android:label="Profile"
             android:exported="false" >
-
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".HomeActivity" />
+        </activity>
+        <activity
+            android:name=".ReporterActivity"
+            android:exported="false"
+            android:label="Report Disaster">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".HomeActivity" />

@@ -19,6 +19,7 @@ import com.bheki97.dms_system_android.retrofit.RetrofitService;
 import com.bheki97.dms_system_android.userdetails.UserDetailsHolder;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
+import java.io.IOException;
 import java.util.regex.Pattern;
 
 import retrofit2.Call;
@@ -145,31 +146,37 @@ public class RegistrationActivity extends AppCompatActivity {
         dmsServerAPI.registerNewAccount(dto).enqueue(new Callback<RegisterDto>() {
             @Override
             public void onResponse(Call<RegisterDto> call, Response<RegisterDto> response) {
-                dialogBuilder = new MaterialAlertDialogBuilder(RegistrationActivity.this)
-                        .setMessage("Thank you for registration on the DMS Platform. You can now " +
-                                "login to start reporting disasters.")
-                        .setTitle("Registration Success")
-                        .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                startActivity(new Intent(RegistrationActivity.this,MainActivity.class));
-                                finish();
-                            }
-                        });
-                dialog = dialogBuilder.create();
-                dialog.show();
+                if(response.code()==200){
+                    dialogBuilder = new MaterialAlertDialogBuilder(RegistrationActivity.this)
+                            .setMessage("Thank you for registration on the DMS Platform. You can now " +
+                                    "login to start reporting disasters.")
+                            .setTitle("Registration Success")
+                            .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    startActivity(new Intent(RegistrationActivity.this,MainActivity.class));
+                                    finish();
+                                }
+                            });
+                    dialog = dialogBuilder.create();
+                    dialog.show();
+                }else{
+                    try {
+                        Toast.makeText(RegistrationActivity.this,response.errorBody().string(),
+                                Toast.LENGTH_SHORT).show();
+                    } catch (IOException e) {
+                        Toast.makeText(RegistrationActivity.this,"Failed Register, Please try again",
+                                Toast.LENGTH_SHORT).show();
+                    }
+
+                }
 
             }
 
             @Override
             public void onFailure(Call<RegisterDto> call, Throwable t) {
-                Toast.makeText(RegistrationActivity.this,"Failed Register, Please try again",
+                Toast.makeText(RegistrationActivity.this,"Could not connect to server!!!!",
                         Toast.LENGTH_SHORT).show();
-                binding.pwdTxtEdit.setText("");
-                binding.celNoTxtEdit.setText("");
-                binding.emailTxtEdit.setText("");
-                binding.fNameEditTxt.setText("");
-                binding.lNameEditTxt.setText("");
             }
         });
     }

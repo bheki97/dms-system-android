@@ -16,7 +16,6 @@ import retrofit2.http.Path;
 public interface DmsServerAPI {
     String PREFIX = "/api";
 
-
     @POST(PREFIX +"/disaster")
     Call<DisasterDto> reportDisaster(@Body DisasterDto dto);
     @GET(PREFIX+"/disaster")
