@@ -42,6 +42,7 @@ public class MyReportsHolder extends RecyclerView.ViewHolder  {
         setDisasterType(dto.getType());
         setDisasterImage(dto.getImgFileContent());
         setStatus(dto.getReportDto());
+        binding.locationTxt.setText(dto.getLocation());
 
     }
 

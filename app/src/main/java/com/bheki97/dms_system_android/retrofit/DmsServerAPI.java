@@ -21,13 +21,13 @@ public interface DmsServerAPI {
     @GET(PREFIX+"/disaster")
     Call<DisasterDto[]> getAllDisasters();
 
-    @GET(PREFIX+"/disaster/{reporterId}")
+    @GET(PREFIX+"/disaster/reporter/{reporterId}")
     Call<DisasterDto[]> getAllMyReportedDisasters(@Path("reporterId")long reporterId);
 
-    @POST(PREFIX+"/register")
+    @POST(PREFIX+"/user")
     Call<RegisterDto> registerNewAccount(@Body RegisterDto dto);
 
-    @POST(PREFIX+"/login")
+    @POST("/auth")
     Call<UserDetailsHolder> login(@Body LoginDto dto);
 
 

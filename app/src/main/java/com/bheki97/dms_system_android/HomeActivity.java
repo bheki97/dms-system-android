@@ -42,7 +42,7 @@ public class HomeActivity extends AppCompatActivity {
                 .setOpenableLayout(drawer)
                 .build();
 
-        setLogoutListener(navigationView.getMenu().findItem(R.id.nav_logout));
+//        setLogoutListener(navigationView.getMenu().findItem(R.id.nav_logout));
 
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_home);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
@@ -57,14 +57,13 @@ public class HomeActivity extends AppCompatActivity {
         userEmailView.setText(holder.getEmail());
     }
 
-    private void setLogoutListener(MenuItem item) {
-        item.setOnMenuItemClickListener( i -> {
-            UserDetailsHolder.build(null);
-            startActivity(new Intent(this,MainActivity.class));
-            finish();
-            return false;
-        });
-    }
+//    private void setLogoutListener(MenuItem item) {
+//        item.setOnMenuItemClickListener( i -> {
+//            UserDetailsHolder.build(null);
+//            startActivity(new Intent(this,MainActivity.class));
+//            return false;
+//        });
+//    }
 
     private String convertToInitCap(String name){
         String names[] = name.split(" ");
@@ -93,9 +92,10 @@ public class HomeActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
 
         if (item.getItemId()== R.id.action_profile) {
-//            finish();
-//            startActivity(new Intent(this, LoginActivity.class));
-//            return true;
+            finish();
+            UserDetailsHolder.build(null);
+            startActivity(new Intent(this, MainActivity.class));
+            return true;
         }
 
         return super.onOptionsItemSelected(item);

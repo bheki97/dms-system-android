@@ -10,6 +10,8 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.content.DialogInterface;
+import android.location.Address;
+import android.location.Geocoder;
 import android.location.Location;
 
 import android.app.Activity;
@@ -41,6 +43,8 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
+import java.util.Locale;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -160,6 +164,16 @@ public class ReporterActivity extends AppCompatActivity {
         dto.setReporter(reporterDto);
         dto.setLatitude(latitude);
         dto.setLongitude(longitude);
+
+        try {
+            dto.setLocation(getLocationCity());
+        } catch (IOException e) {
+            Toast.makeText(this,"Could not get location!, try again",
+                    Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+
         if(imageContent!=null){
             String imgStringContent =  Base64.encodeToString(bitmapToByteArray(imageContent),Base64.NO_WRAP);
             String imgFileName = "disaster.png";
@@ -167,8 +181,17 @@ public class ReporterActivity extends AppCompatActivity {
             dto.setImgFileName(imgFileName);
 
         }
+
+
         submitDisasterDto(dto);
 
+    }
+
+    private String getLocationCity() throws IOException {
+        Geocoder geocoder = new Geocoder(this, Locale.getDefault());
+        Address addr = geocoder.getFromLocation(latitude,longitude,1).get(0);
+
+        return addr.getSubLocality()+ " "+ addr.getLocality();
     }
 
     private void validateForm() throws UiException {
@@ -193,7 +216,7 @@ public class ReporterActivity extends AppCompatActivity {
         builder.setTitle("Reported Confirmation");
         builder.setMessage("Thank you for reporting the disaster we will keep you update with the Progress." +
                 " You track the disaster of the my history tab ");
-        builder.setPositiveButton("Join Event", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.dismiss();
